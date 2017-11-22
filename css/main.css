@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+}
+
+div {
+    text-align: left;
+}
+
+#display div {
+    border: .2em solid black;
+    width: 5em;
+    margin: .2em;
+}
+
+#demo {
+    font-weight: bold;
+    font-size: 2em;
+    margin: .5em;
+}
+
+#demo h1 {
+    margin: .2em;
+    color: cadetblue;    
+}
+
