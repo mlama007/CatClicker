@@ -69,6 +69,24 @@ let octopus = {
     //hides admin settings
     hideAminSettings: function(){
         document.getElementById('adminSettings').style.visibility = "hidden";        
+    },
+
+    //save admin settings
+    SaveAminSettings: function(){
+        //get input values from user
+        let adminNameValue = document.getElementById("adminName").value;
+        let adminURLValue = document.getElementById("adminURL").value;
+        let adminCountValue = document.getElementById("adminCount").value;
+
+        //replace model info with input
+        (adminNameValue.length > 0) ? (model.currentCat.name = adminNameValue) : (model.currentCat.name);
+        (adminURLValue.length > 0) ? (model.currentCat.imgSrc = adminURLValue) : (model.currentCat.imgSrc);
+        (adminCountValue.length > 0) ? (model.currentCat.clickCount = adminCountValue) : (model.currentCat.clickCount);
+        
+        //hide admin settings
+        document.getElementById('adminSettings').style.visibility = "hidden";
+
+        catView.render();            
     }
 };
 
@@ -88,6 +106,7 @@ var catView = {
         this.adminURL = document.getElementById('adminURL');
         this.adminCount = document.getElementById('adminCount');
         this.adminCancel = document.getElementById('adminCancel');
+        this.adminSave = document.getElementById('adminSave');
 
         //Increment counter
         this.imgElem.addEventListener('click', function(){
@@ -102,6 +121,11 @@ var catView = {
         //hide admin settings if cancelled
         this.adminCancel.addEventListener('click', function(){
             octopus.hideAminSettings();
+        })
+        
+        //save admin settings if clicked
+        this.adminSave.addEventListener('click', function(){
+            octopus.SaveAminSettings();
         })
 
         //update view
@@ -150,7 +174,7 @@ var catListView = {
                     catView.render();    
                 };
             })(cat));
-
+        
             //add to list
             this.listElem.appendChild(elem);
         }
