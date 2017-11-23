@@ -7,11 +7,22 @@
 </head>
 <body>
     <h1>Meet my cats!</h1>
-    <ul id="cat-list"></ul>
+    <div>
+        <ul id="cat-list"></ul>
+    </div>
     <div id="cat">
         <h2 id="name"></h2>
         <div id="count"></div>
         <img id="pic" src="" alt="kitten">
+        <div>
+            <button id='admin'>Admin</button>
+            <div id="adminSettings">
+                <p>Name: <input id="adminName" type="text"></p>
+                <p>Img URL: <input id="adminURL" type="text"></p>
+                <p>Click Counter: <input id="adminCount" type="text"></p>
+                <button id="adminCancel" >Cancel</button>
+            </div>            
+        </div>        
     </div>
     <script src="app.js"></script>
 </body>

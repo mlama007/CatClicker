@@ -59,6 +59,16 @@ let octopus = {
     incrementCounter: function() {
         model.currentCat.clickCount ++;
         catView.render();
+    },
+
+    //gets admin settings to display
+    displayAdminSettings: function(){
+        document.getElementById('adminSettings').style.visibility = "visible";
+    },
+
+    //hides admin settings
+    hideAminSettings: function(){
+        document.getElementById('adminSettings').style.visibility = "hidden";        
     }
 };
 
@@ -73,11 +83,26 @@ var catView = {
         this.nameElem = document.getElementById('name');
         this.imgElem = document.getElementById('pic');
         this.countElem = document.getElementById('count');
+        this.adminElem = document.getElementById('admin');
+        this.adminName = document.getElementById('adminName');
+        this.adminURL = document.getElementById('adminURL');
+        this.adminCount = document.getElementById('adminCount');
+        this.adminCancel = document.getElementById('adminCancel');
 
         //Increment counter
         this.imgElem.addEventListener('click', function(){
             octopus.incrementCounter();
         });
+
+        //show admin setting when clicked
+        this.adminElem.addEventListener('click', function(){
+            octopus.displayAdminSettings();
+        });
+
+        //hide admin settings if cancelled
+        this.adminCancel.addEventListener('click', function(){
+            octopus.hideAminSettings();
+        })
 
         //update view
         this.render();
